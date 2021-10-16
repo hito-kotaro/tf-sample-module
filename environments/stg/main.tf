@@ -12,21 +12,12 @@ provider "aws" {
 }
 
 module "network" {
-  source   = "../../module_aws/vpc"
-  system   = "Isis"
-  env      = "stg"
-  cidr_vpc = "10.110.0.0/16"
-  cidr_public = [
-    "10.110.10.0/24",
-    "10.110.11.0/24",
-    "10.110.12.0/24"
-  ]
-
-  cidr_private = [
-    "10.110.20.0/24",
-    "10.110.21.0/24",
-    "10.110.22.0/24"
-  ]
+  source       = "../../module_aws/vpc"
+  system       = var.system
+  env          = var.env
+  cidr_vpc     = var.vpc_cidr
+  cidr_public  = var.cidr_public
+  cidr_private = var.cidr_private
 }
 
 
