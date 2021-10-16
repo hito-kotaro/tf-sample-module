@@ -33,3 +33,13 @@ module "ec2" {
   type         = var.type
   key_name     = var.key_name
 }
+
+module "alb" {
+  source        = "../../module_aws/elb"
+  subnets       = module.network.subnets
+  sg-elb       = module.ec2.sg-elb
+  system        = var.system
+  env           = var.env
+  vpc_id        = module.network.vpc_id
+  pub_instances = module.ec2.pub_instances
+}
