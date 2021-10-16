@@ -32,8 +32,8 @@ module "network" {
 
 module "ec2" {
   source       = "../../module_aws/ec2"
-  system       = "Isis"
-  env          = "dev"
+  system       = var.system
+  env          = var.env
   vpc_id       = module.network.vpc_id
   subnets      = module.network.subnets
   myip         = var.myip
