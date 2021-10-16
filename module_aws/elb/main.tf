@@ -1,9 +1,9 @@
 resource "aws_lb" "alb" {
-  name               = "${var.env}-${var.system}-alb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = ["${var.sg-elb}"]
-  subnets            = var.subnets.*.id
+  name                       = "${var.env}-${var.system}-alb"
+  internal                   = false
+  load_balancer_type         = "application"
+  security_groups            = ["${var.sg-elb}"]
+  subnets                    = var.subnets.*.id
   enable_deletion_protection = false
 
   tags = {
@@ -18,7 +18,7 @@ resource "aws_lb_target_group" "tg1" {
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id
-  
+
 }
 
 resource "aws_lb_listener" "listener80" {

@@ -6,11 +6,11 @@ resource "aws_security_group" "sg-ec2" {
   description = "Allow HTTP inbound traffic"
   vpc_id      = var.vpc_id
   ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
     security_groups = [aws_security_group.sg-elb.id]
-    cidr_blocks = [var.myip]
+    cidr_blocks     = [var.myip]
   }
 
   ingress {
