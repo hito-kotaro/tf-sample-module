@@ -15,7 +15,7 @@ moduleを使って複数の環境を作成するテンプレート
 
 ```zsh
 $ git clone https://github.com/hito-kotaro/tf-sample-ansible.git
-$ cd tf-sample-ansible
+$ cd tf-sample-module
 ```
 
 ## create terraform.tfvars
@@ -34,6 +34,8 @@ instance_cnt = <NUM OF INSTANCE>
 ami          = <AMI ID>
 type         = <INSTANCE TYPE>
 key_name     = <EC2 INSTANCE KEY PAIR>
+vpc_cidr     = <VPC CIDR BLOCK>
+cidr_public  = <SUBNET CIDR BLOCK(list)>
 
 ```
 
